@@ -27,28 +27,17 @@ cd nextjs-template
 ```
 
 2. Start the development server:
+
+### Using Docker Compose (Works on both Windows and Unix)
 ```bash
-# Using Docker Compose directly
 docker-compose up dev
-
-# Or using the make commands
-# Using PowerShell
-.\make.cmd up
-
-# Using Unix-like systems
-make up
 ```
 
-The development server will be available at `http://localhost:3001`
+### Using Make Commands
 
-## Available Commands
-
-### Development
-```bash
+#### Windows (PowerShell)
+```powershell
 # Start development server (with hot reload)
-docker-compose up dev
-
-# Or using make commands
 .\make.cmd dev
 
 # Build and start development server
@@ -64,20 +53,98 @@ docker-compose up dev
 .\make.cmd bash
 ```
 
-### Production
+#### Unix-based Systems (Linux/macOS)
 ```bash
+# Start development server (with hot reload)
+make dev
+
+# Build and start development server
+make up
+
+# Start development server (without logs)
+make start
+
+# Stop development server
+make stop
+
+# Shell into development container
+make bash
+```
+
+The development server will be available at `http://localhost:3001`
+
+## Available Commands
+
+### Development
+
+#### Windows (PowerShell)
+```powershell
+# Start development server (with hot reload)
+docker-compose up dev
+# OR
+.\make.cmd dev
+
+# Build and start development server
+.\make.cmd up
+
+# Start development server (without logs)
+.\make.cmd start
+
+# Stop development server
+.\make.cmd stop
+
+# Shell into development container
+.\make.cmd bash
+```
+
+#### Unix-based Systems (Linux/macOS)
+```bash
+# Start development server (with hot reload)
+docker-compose up dev
+# OR
+make dev
+
+# Build and start development server
+make up
+
+# Start development server (without logs)
+make start
+
+# Stop development server
+make stop
+
+# Shell into development container
+make bash
+```
+
+### Production
+
+#### Windows (PowerShell)
+```powershell
 # Start production server
 docker-compose up prod
-
-# Or using make commands
+# OR
 .\make.cmd prod
 
 # Build Docker images
 .\make.cmd build
 ```
 
-### Maintenance
+#### Unix-based Systems (Linux/macOS)
 ```bash
+# Start production server
+docker-compose up prod
+# OR
+make prod
+
+# Build Docker images
+make build
+```
+
+### Maintenance
+
+#### Windows (PowerShell)
+```powershell
 # Install dependencies
 .\make.cmd install
 
@@ -88,6 +155,18 @@ docker-compose up prod
 .\make.cmd clean
 ```
 
+#### Unix-based Systems (Linux/macOS)
+```bash
+# Install dependencies
+make install
+
+# Stop all containers
+make down
+
+# Clean up Docker resources
+make clean
+```
+
 ## Development
 
 The project uses:
@@ -96,35 +175,37 @@ The project uses:
 - Docker for containerization
 - TypeScript for type safety
 
-## Deployment
-
-This template is ready for deployment to various platforms:
-
-### Vercel (Recommended)
-- Push your code to GitHub
-- Connect to Vercel
-- Automatic deployments with zero configuration
-
-### Docker-based Deployment
-- Build the production image: `docker build -t your-app-name .`
-- Deploy to any platform supporting Docker containers:
-  - AWS ECS
-  - Google Cloud Run
-  - Azure Container Instances
-  - DigitalOcean App Platform
-  - Heroku
-
-### Manual VPS Deployment
-- Set up a VPS with Node.js
-- Clone the repository
-- Install dependencies
-- Build and run:
-  ```bash
-  npm install
-  npm run build
-  npm start
-  ```
-
 ## Port Configuration
 - Development: Port 3001 (http://localhost:3001)
-- Production: Port 3000 (http://localhost:3000) 
+- Production: Port 3000 (http://localhost:3000)
+
+## Git Commands
+
+### Initial Setup
+```bash
+# Initialize Git repository
+git init
+
+# Add all files
+git add .
+
+# Initial commit
+git commit -m "Initial commit"
+
+# Add remote (replace <username> and <repo>)
+git remote add origin https://github.com/<username>/<repo>.git
+
+# Push to GitHub
+git branch -M main
+git push -u origin main
+```
+
+### Windows-specific Git Notes
+- If you encounter line ending issues, you can configure Git to handle them automatically:
+  ```powershell
+  git config --global core.autocrlf true
+  ```
+- For PowerShell, you might need to set the execution policy to run scripts:
+  ```powershell
+  Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+  ``` 
