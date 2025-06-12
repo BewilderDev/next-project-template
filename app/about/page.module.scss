@@ -1,0 +1,32 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: $font-size-4xl;
+  font-weight: bold;
+  margin-bottom: $spacing-lg;
+  color: $text-color;
+}
+
+.description {
+  font-size: $font-size-lg;
+  color: $text-light;
+  margin-bottom: $spacing-lg;
+}
+
+.features {
+  list-style: disc;
+  padding-left: $spacing-lg;
+  color: $text-light;
+  font-size: $font-size-base;
+  line-height: 1.6;
+
+  li {
+    margin-bottom: $spacing-sm;
+  }
+} 

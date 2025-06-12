@@ -1,0 +1,23 @@
+@use './styles/variables' as *;
+@use './styles/mixins' as *;
+
+.container {
+  @include flex-center;
+  flex-direction: column;
+  text-align: center;
+  padding: $spacing-xl 0;
+}
+
+.title {
+  font-size: $font-size-4xl;
+  font-weight: bold;
+  margin-bottom: $spacing-md;
+  color: $text-color;
+}
+
+.description {
+  font-size: $font-size-lg;
+  color: $text-light;
+  max-width: 600px;
+  line-height: 1.5;
+} 
